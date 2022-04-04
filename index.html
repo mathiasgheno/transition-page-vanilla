@@ -1,11 +1,16 @@
 <style>
+  * {
+    box-sizing: border-box;
+  }
   @keyframes showPage {
     from {
       /*left: 0%;*/
-      opacity: 0;
-      border: 1px solid black;
-      transform: scale(0.8);
+      opacity: .5;
+      /* border: 1px solid black; */
+      transform: scale(0.6);
       right: -100%;
+      border-radius: 10px 0 0 10px;
+
       /*border-radius: 100%;*/
     }
     to {
@@ -13,9 +18,9 @@
       transform: scale(1);
       visibility: visible;
       right: 0;
-      border: 1px solid grey;
+      /* border: 1px solid grey; */
+      border-radius: 10px;
       /*border-radius: 0;*/
-
       /*left: 11%;*/
     }
   }
@@ -29,11 +34,30 @@
     }
   }
 
+  .wrapper {
+    width: 100vw;
+    border-top: 1px solid #ececec;
+    border-bottom: 1px solid #ececec;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* .wrapper:after{
+    position: absolute;
+    box-shadow: -5px 0px 15px 15px rgba(255, 255, 255, 0.9);
+    content: '';
+    height: 100%;
+    width: 10px;
+    background-color: black;
+    top: 0;
+    right: -10px;
+    display: block;
+  } */
+
   .content {
     position: relative;
     width: 50%;
     height: 50%;
-    overflow: hidden;
     background-color: transparent;
     margin: 0 auto;
   }
@@ -48,8 +72,6 @@
     border-radius: 10px;
   }
   .page.a {
-    width: 100%;
-    height: 100%;
     background-color: pink;
     animation: hidePage 0.4s linear both;
   }
@@ -57,29 +79,28 @@
     right: -100%;
     visibility: hidden;
     background-color: #1ea7fd;
-    animation: showPage 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28) both 0.3s;
-    /*cubic-bezier(0.68, -0.55, 0.27, 1.55)*/
+    animation: showPage 4s ease-in-out both 0.3s;
   }
   .page-content {
-    padding: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-
-
 </style>
 
 <div class="card">
-    <h1>Title</h1>
+  <h1>Title</h1>
+  <div class="wrapper">
     <div class="content">
-        <div class="page a">
-            <div class="page-content">
-                Pagina A
-            </div>
-        </div>
-        <div class="page b">
-            <div class="page-content">
-                Pagina B
-            </div>
-        </div>
-        <!--        <div class="blue"></div>-->
+      <div class="page a">
+        <div class="page-content">Pagina A</div>
+      </div>
+      <div class="page b">
+        <div class="page-content">Pagina B</div>
+      </div>
     </div>
+
+    <!--        <div class="blue"></div>-->
+  </div>
 </div>
